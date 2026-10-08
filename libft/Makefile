@@ -6,7 +6,7 @@
 #    By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/22 18:25:18 by salegari          #+#    #+#              #
-#    Updated: 2026/09/23 21:54:25 by salegari         ###   ########.fr        #
+#    Updated: 2026/10/08 18:17:25 by salegari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,13 @@ SRC =	ft_strlen.c\
 	ft_lstclear.c\
 	ft_lstiter.c\
 	ft_lstmap.c\
+	ft_intpchar.c \
+	ft_intpstr.c \
+	ft_intputnbr.c \
+	ft_printf.c \
+	ft_putnbr_base.c \
+	ft_putnbr_unsg.c \
+	ft_putptr.c \
 
 OBJ = $(SRC:.c=.o)
 
