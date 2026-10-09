@@ -6,12 +6,12 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 20:15:09 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/07 20:17:24 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 19:23:39 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_list	normalize(t_list *lst, int count)
+t_list	normalize(t_stack *lst, int count)
 {
 }

@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 18:05:01 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 19:24:36 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
-typedef struct s_nums
+typedef struct s_stack
 {
 	int				n;
 	int				idx;
-	struct s_nums	*next;
-}	t_nums;
+	struct s_stack	*next;
+}	t_stack;
 
 typedef struct s_parse
 {
@@ -30,16 +30,17 @@ typedef struct s_parse
 }	t_parse;
 
 
-int	sa(t_nums **a);
-int	sb(t_nums **b);
-int	ss(t_nums **a, t_nums **b);
-int	pa(t_nums **a, t_nums **b);
-int	pb(t_nums **a, t_nums **b);
-int	ra(t_nums **a);
-int	rb(t_nums **b);
-int	rr(t_nums **a, t_nums **b);
-int	rra(t_nums **a);
-int	rrb(t_nums **b);
-int	rrr(t_nums **a, t_nums **b);
+int	sa(t_stack **a);
+int	sb(t_stack **b);
+int	ss(t_stack **a, t_stack **b);
+int	pa(t_stack **a, t_stack **b);
+int	pb(t_stack **a, t_stack **b);
+int	ra(t_stack **a);
+int	rb(t_stack **b);
+int	rr(t_stack **a, t_stack **b);
+int	rra(t_stack **a);
+int	rrb(t_stack **b);
+int	rrr(t_stack **a, t_stack **b);
+int	is_sorted(t_stack *stack);
 
 #endif

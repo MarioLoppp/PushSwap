@@ -6,15 +6,15 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 17:22:13 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 18:03:26 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 19:22:56 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	sa(t_nums **a)
+int	sa(t_stack **a)
 {
-	t_nums	*tmp;
+	t_stack	*tmp;
 
 	if (!a || !*a || !(*a)->next)
 		return (0);
@@ -24,9 +24,9 @@ int	sa(t_nums **a)
 	return (1);
 }
 
-int	sb(t_nums **b)
+int	sb(t_stack **b)
 {
-	t_nums	*tmp;
+	t_stack	*tmp;
 
 	if (!b || !*b || !(*b)->next)
 		return (0);
@@ -36,16 +36,16 @@ int	sb(t_nums **b)
 	return (1);
 }
 
-int	ss(t_nums **a, t_nums **b)
+int	ss(t_stack **a, t_stack **b)
 {
 	sa(&*a);
 	sb(&*b);
 	return (1);
 }
 
-int	pa(t_nums **a, t_nums **b)
+int	pa(t_stack **a, t_stack **b)
 {
-	t_nums	*first;
+	t_stack	*first;
 
 	if (!a || !b || !*b)
 		return (0);
@@ -56,9 +56,9 @@ int	pa(t_nums **a, t_nums **b)
 	return (1);
 }
 
-int	pb(t_nums **a, t_nums **b)
+int	pb(t_stack **a, t_stack **b)
 {
-	t_nums	*first;
+	t_stack	*first;
 
 	if (!b || !a || !*a)
 		return (0);

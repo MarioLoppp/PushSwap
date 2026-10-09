@@ -6,20 +6,20 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:09 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 18:03:40 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 19:23:29 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	parse_input(int ac, char **av, t_nums nums)
+int	parse_input(int ac, char **av, t_stack nums)
 {
 	exit(1);
 }
 
 int	main(int ac, char **av)
 {
-	t_nums	nums;
+	t_stack	nums;
 
 	if (ac < 2)
 	{

@@ -6,16 +6,16 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 18:30:00 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 18:48:22 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 19:22:37 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	disorder_index(t_nums *stack)
+int	disorder_index(t_stack *stack)
 {
-	t_nums	*current;
-	t_nums	*next;
+	t_stack	*current;
+	t_stack	*next;
 	long	inversions;
 	long	total_pairs;
 

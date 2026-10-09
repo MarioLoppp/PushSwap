@@ -6,16 +6,16 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 17:48:31 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 18:02:51 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 19:23:47 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	rra(t_nums **a)
+int	rra(t_stack **a)
 {
-	t_nums	*last;
-	t_nums	*prev;
+	t_stack	*last;
+	t_stack	*prev;
 
 	if (!a || !*a || !(*a)->next)
 		return (0);
@@ -29,10 +29,10 @@ int	rra(t_nums **a)
 	return (1);
 }
 
-int	rrb(t_nums **b)
+int	rrb(t_stack **b)
 {
-	t_nums	*last;
-	t_nums	*prev;
+	t_stack	*last;
+	t_stack	*prev;
 
 	if (!b || !*b || !(*b)->next)
 		return (0);
@@ -46,7 +46,7 @@ int	rrb(t_nums **b)
 	return (1);
 }
 
-int	rrr(t_nums **a, t_nums **b)
+int	rrr(t_stack **a, t_stack **b)
 {
 	if (!rra(&*a) || !rrb(&*b))
 		return (0);
