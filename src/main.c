@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:09 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/08 18:17:54 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/09 18:03:40 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	parse_input(int ac, char **av, t_nums nums)
 {
-
 	exit(1);
 }
 
