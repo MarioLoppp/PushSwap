@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/08 18:04:43 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/11 22:01:46 by marlope3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,18 @@
 typedef struct s_nums
 {
 	int				n;
-	int				idx;
+	int				index;
+	struct s_nums	*prev;
 	struct s_nums	*next;
 }	t_nums;
+
+typedef struct s_stack
+{
+	t_nums 	*top;
+	t_nums 	*bottom;
+	int		size;
+	char	name;
+}	t_stack;
 
 typedef struct s_parse
 {
