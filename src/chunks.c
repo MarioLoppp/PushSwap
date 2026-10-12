@@ -63,7 +63,51 @@ int	max_position(t_stack *b)
 	return (max_position);
 }
 
-/*void	sort_medium(t_stack *a, t_stack *b)
+void	pull_max(t_stack *a, t_stack *b)
 {
+	int	pos;
+	int	moves;
 
-}*/
+	pos = max_position(b);
+	if (pos <= b->size / 2)
+	{
+		moves = pos;
+		while (moves > 0)
+		{
+			rb(b);
+			moves--;
+		}
+	}
+	else
+	{
+		moves = b->size - pos;
+		while (moves > 0)
+		{
+			rrb(b);
+			moves--;
+		}
+	}
+	pa(a, b);
+}-
+
+void	sort_medium(t_stack *a, t_stack *b)
+{
+	int	total;
+	int	chunk;
+	int	low;
+
+	if (!a || !b)
+		return ;
+	if (b->size || is_sorted(a))
+		return ;
+	total = a->size;
+	chunk = chunk_size(total);
+	low = 0;
+	while (low < total)
+	{
+		push_chunk(a, b, low, low + chunk);
+		low += chunk;
+	}
+	while (b->size > 0)
+		pull_max(a, b);
+}
