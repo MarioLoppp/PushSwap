@@ -55,7 +55,7 @@ int	max_position(t_stack *b)
 		if (temp->index > max_index)
 		{
 			max_index = temp->index;
-			max_pos = i;
+			max_position = i;
 		}
 		temp = temp->next;
 		i++;
