@@ -12,43 +12,44 @@
 
 #include "../includes/push_swap.h"
 
-int	rra(t_stack **a)
+int	rra(t_stack *a)
 {
-	t_stack	*last;
-	t_stack	*prev;
+	t_nums	*last;
 
-	if (!a || !*a || !(*a)->next)
+	if (!a || !a->top || !a->top->next)
 		return (0);
-	prev = *a;
-	while (prev->next->next)
-		prev = prev->next;
-	last = prev->next;
-	prev->next = NULL;
-	last->next = *a;
-	*a = last;
+	last = a->bottom;
+	a->bottom = last->prev;
+	a->bottom->next = NULL;
+	last->prev = NULL;
+	last->next = a->top;
+	a->top->prev = last;
+	a->top = last;
 	return (1);
 }
 
-int	rrb(t_stack **b)
+int	rrb(t_stack *b)
 {
-	t_stack	*last;
-	t_stack	*prev;
+	t_nums	*last;
 
-	if (!b || !*b || !(*b)->next)
+	if (!b || !b->top || !b->top->next)
 		return (0);
-	prev = *b;
-	while (prev->next->next)
-		prev = prev->next;
-	last = prev->next;
-	prev->next = NULL;
-	last->next = *b;
-	*b = last;
+	last = b->bottom;
+	b->bottom = last->prev;
+	b->bottom->next = NULL;
+	last->prev = NULL;
+	last->next = b->top;
+	b->top->prev = last;
+	b->top = last;
 	return (1);
 }
 
-int	rrr(t_stack **a, t_stack **b)
+int	rrr(t_stack *a, t_stack *b)
 {
-	if (!rra(&*a) || !rrb(&*b))
-		return (0);
-	return (1);
+	int	moved_a;
+	int	moved_b;
+
+	moved_a = rra(a);
+	moved_b = rrb(b);
+	return (moved_a || moved_b);
 }

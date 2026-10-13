@@ -14,21 +14,23 @@
 
 int	disorder_index(t_stack *stack)
 {
-	t_stack	*current;
-	t_stack	*next;
+	t_nums	*current;
+	t_nums	*next;
 	long	inversions;
 	long	total_pairs;
 
 	inversions = 0;
 	total_pairs = 0;
-	current = stack;
+	if (!stack)
+		return (0);
+	current = stack->top;
 	while (current)
 	{
 		next = current->next;
 		while (next)
 		{
 			total_pairs++;
-			if (current->idx > next->idx)
+			if (current->index > next->index)
 				inversions++;
 			next = next->next;
 		}

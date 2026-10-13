@@ -12,6 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-t_list	normalize(t_stack *lst, int count)
+t_list	normalize(t_nums *lst, int count)
 {
 }

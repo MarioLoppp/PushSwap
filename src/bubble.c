@@ -12,19 +12,19 @@
 
 #include "../includes/push_swap.h"
 
-void	bubble_sort(t_stack **a, t_stack **b)
+void	bubble_sort(t_stack *a, t_stack *b)
 {
-	if (!a || !b || *b)
+	if (!a || !b || b->top)
 		return ;
-	while (!is_sorted(*a))
+	while (!is_sorted(a))
 	{
-		while (*a && (*a)->next)
+		while (a->top && a->top->next)
 		{
-			if ((*a)->n > (*a)->next->n)
+			if (a->top->n > a->top->next->n)
 				sa(a);
 			pb(a, b);
 		}
-		while (*b)
+		while (b->top)
 			pa(a, b);
 	}
 }

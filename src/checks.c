@@ -14,11 +14,16 @@
 
 int	is_sorted(t_stack *stack)
 {
-	while (stack && stack->next)
+	t_nums	*node;
+
+	if (!stack)
+		return (1);
+	node = stack->top;
+	while (node && node->next)
 	{
-		if (stack->idx > stack->next->idx)
+		if (node->index > node->next->index)
 			return (0);
-		stack = stack->next;
+		node = node->next;
 	}
 	return (1);
 }

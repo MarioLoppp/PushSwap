@@ -12,59 +12,102 @@
 
 #include "../includes/push_swap.h"
 
-int	sa(t_stack **a)
+int	sa(t_stack *a)
 {
-	t_stack	*tmp;
+	t_nums	*first;
+	t_nums	*second;
 
-	if (!a || !*a || !(*a)->next)
+	if (!a || !a->top || !a->top->next)
 		return (0);
-	tmp = *a;
-	*a = (*a)->next;
-	(*a)->next = tmp;
+	first = a->top;
+	second = first->next;
+	first->next = second->next;
+	if (first->next)
+		first->next->prev = first;
+	else
+		a->bottom = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	a->top = second;
 	return (1);
 }
 
-int	sb(t_stack **b)
+int	sb(t_stack *b)
 {
-	t_stack	*tmp;
+	t_nums	*first;
+	t_nums	*second;
 
-	if (!b || !*b || !(*b)->next)
+	if (!b || !b->top || !b->top->next)
 		return (0);
-	tmp = *b;
-	*b = (*b)->next;
-	(*b)->next = tmp;
+	first = b->top;
+	second = first->next;
+	first->next = second->next;
+	if (first->next)
+		first->next->prev = first;
+	else
+		b->bottom = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	b->top = second;
 	return (1);
 }
 
-int	ss(t_stack **a, t_stack **b)
+int	ss(t_stack *a, t_stack *b)
 {
-	sa(&*a);
-	sb(&*b);
+	int	moved_a;
+	int	moved_b;
+
+	moved_a = sa(a);
+	moved_b = sb(b);
+	return (moved_a || moved_b);
+}
+
+int	pa(t_stack *a, t_stack *b)
+{
+	t_nums	*first;
+
+	if (!a || !b || a == b || !b->top)
+		return (0);
+	first = b->top;
+	b->top = first->next;
+	if (b->top)
+		b->top->prev = NULL;
+	else
+		b->bottom = NULL;
+	first->prev = NULL;
+	first->next = a->top;
+	if (a->top)
+		a->top->prev = first;
+	else
+		a->bottom = first;
+	a->top = first;
+	b->size--;
+	a->size++;
 	return (1);
 }
 
-int	pa(t_stack **a, t_stack **b)
+int	pb(t_stack *a, t_stack *b)
 {
-	t_stack	*first;
+	t_nums	*first;
 
-	if (!a || !b || !*b)
+	if (!b || !a || a == b || !a->top)
 		return (0);
-	first = *b;
-	*b = first->next;
-	first->next = *a;
-	*a = first;
-	return (1);
-}
-
-int	pb(t_stack **a, t_stack **b)
-{
-	t_stack	*first;
-
-	if (!b || !a || !*a)
-		return (0);
-	first = *a;
-	*a = first->next;
-	first->next = *b;
-	*b = first;
+	first = a->top;
+	a->top = first->next;
+	if (a->top)
+		a->top->prev = NULL;
+	else
+		a->bottom = NULL;
+	first->prev = NULL;
+	first->next = b->top;
+	if (b->top)
+		b->top->prev = first;
+	else
+		b->bottom = first;
+	b->top = first;
+	a->size--;
+	b->size++;
 	return (1);
 }

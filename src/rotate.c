@@ -12,43 +12,44 @@
 
 #include "../includes/push_swap.h"
 
-int	ra(t_stack **a)
+int	ra(t_stack *a)
 {
-	t_stack	*first;
-	t_stack	*last;
+	t_nums	*first;
 
-	if (!a || !*a || !(*a)->next)
+	if (!a || !a->top || !a->top->next)
 		return (0);
-	first = *a;
-	last = *a;
-	while (last->next)
-		last = last->next;
-	*a = first->next;
+	first = a->top;
+	a->top = first->next;
+	a->top->prev = NULL;
+	first->prev = a->bottom;
 	first->next = NULL;
-	last->next = first;
+	a->bottom->next = first;
+	a->bottom = first;
 	return (1);
 }
 
-int	rb(t_stack **b)
+int	rb(t_stack *b)
 {
-	t_stack	*first;
-	t_stack	*last;
+	t_nums	*first;
 
-	if (!b || !*b || !(*b)->next)
+	if (!b || !b->top || !b->top->next)
 		return (0);
-	first = *b;
-	last = *b;
-	while (last->next)
-		last = last->next;
-	*b = first->next;
+	first = b->top;
+	b->top = first->next;
+	b->top->prev = NULL;
+	first->prev = b->bottom;
 	first->next = NULL;
-	last->next = first;
+	b->bottom->next = first;
+	b->bottom = first;
 	return (1);
 }
 
-int	rr(t_stack **a, t_stack **b)
+int	rr(t_stack *a, t_stack *b)
 {
-	if (!ra(&*a) || !rb(&*b))
-		return (0);
-	return (1);
+	int	moved_a;
+	int	moved_b;
+
+	moved_a = ra(a);
+	moved_b = rb(b);
+	return (moved_a || moved_b);
 }
