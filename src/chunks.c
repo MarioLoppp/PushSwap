@@ -6,11 +6,11 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:42:19 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/09 16:42:19 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/13 18:22:44 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	chunk_size(int n)
 {
@@ -88,7 +88,7 @@ void	pull_max(t_stack *a, t_stack *b)
 		}
 	}
 	pa(a, b);
-}-
+}
 
 void	sort_medium(t_stack *a, t_stack *b)
 {
