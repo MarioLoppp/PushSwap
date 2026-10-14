@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/11 22:01:46 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/14 20:29:21 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack
 
 typedef struct s_parse
 {
-	int	parse;
+	int	bench;
 	int	algo;
 }	t_parse;
 
@@ -57,5 +57,12 @@ void			bubble_sort(t_stack *a, t_stack *b);
 int				chunk_size(int n);
 void			push_chunk(t_stack *a, t_stack *b, int low, int high);
 int				max_position(t_stack *b);
+void			stack_add_back(t_stack *stack, t_nums *new);
+t_nums			*num_new(int n);
+void			free_arr(char **arr);
+int				put_in_stack(t_stack *stack, char **arr);
+int				parse_ints(int ac, char **av, t_stack *stack, t_parse flags);
+int				parse_flags(int ac, char **av, t_parse *flags);
+void			sort_medium(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/22 18:25:18 by salegari          #+#    #+#              #
-#    Updated: 2026/10/08 18:17:25 by salegari         ###   ########.fr        #
+#    Updated: 2026/10/14 19:42:49 by salegari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRC =	ft_strlen.c\
 	ft_putnbr_base.c \
 	ft_putnbr_unsg.c \
 	ft_putptr.c \
+	ft_str_is_numeric.c \
 
 OBJ = $(SRC:.c=.o)
 

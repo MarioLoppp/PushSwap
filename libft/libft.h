@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 13:55:54 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 20:13:52 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/14 19:42:13 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+int				ft_str_is_numeric(char *str);
 // PRINTF
 int				ft_putptr(void *ptr);
 int				ft_putnbr_unsg(unsigned int n);
