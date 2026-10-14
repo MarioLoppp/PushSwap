@@ -6,13 +6,13 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 19:41:17 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 19:41:44 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/14 20:48:37 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_str_is_numeric(char *str)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 

@@ -6,13 +6,11 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:16:36 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/14 18:17:09 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/14 20:46:39 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
-
-
 
 #endif

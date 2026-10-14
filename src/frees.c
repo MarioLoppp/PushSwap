@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:14:25 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 20:14:42 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/14 20:45:42 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,29 @@ void	free_arr(char **arr)
 		i++;
 	}
 	free(arr);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_nums	*current;
+	t_nums	*next;
+
+	if (!stack)
+		return ;
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
+}
+
+void	ft_error(void)
+{
+	ft_printf("Error\n");
+	exit(1);
 }
