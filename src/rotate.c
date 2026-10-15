@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 17:49:19 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 19:23:15 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/15 19:42:03 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ra(t_stack *a)
 	first->next = NULL;
 	a->bottom->next = first;
 	a->bottom = first;
+	ft_printf("ra\n");
 	return (1);
 }
 
@@ -41,6 +42,7 @@ int	rb(t_stack *b)
 	first->next = NULL;
 	b->bottom->next = first;
 	b->bottom = first;
+	ft_printf("rb\n");
 	return (1);
 }
 
@@ -51,5 +53,6 @@ int	rr(t_stack *a, t_stack *b)
 
 	moved_a = ra(a);
 	moved_b = rb(b);
+	ft_printf("rr\n");
 	return (moved_a || moved_b);
 }

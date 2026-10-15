@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 20:46:15 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/15 19:22:21 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void			radix_sort(t_stack *a, t_stack *b);
 int				repeated(t_stack *stack);
 void			free_stack(t_stack *stack);
 void			ft_error(void);
+void	print_bench(t_stack *a, t_stack *b, t_parse flags);
 
 #endif
