@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 16:25:12 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/14 17:13:42 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/16 19:57:38 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	get_max_bits(t_stack *a)
 	return (bits);
 }
 
-void	push_by_bit(t_stack *a, t_stack *b, int bit)
+void	push_by_bit(t_stack *a, t_stack *b, int bit, t_mvlst *moves)
 {
 	if (((a->top->index >> bit) & 1) == 0)
-		pb(a, b);
+		pb(a, b, moves);
 	else
-		ra(a);
+		ra(a, moves, 0);
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b, t_mvlst *moves)
 {
 	int	bits;
 	int	i;
@@ -49,11 +49,11 @@ void	radix_sort(t_stack *a, t_stack *b)
 		j = 0;
 		while (j < size)
 		{
-			push_by_bit(a, b, i);
+			push_by_bit(a, b, i, moves);
 			j++;
 		}
 		while (b->size > 0)
-			pa(a, b);
+			pa(a, b, moves);
 		i++;
 	}
 }

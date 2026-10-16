@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:14:25 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 20:45:42 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/16 21:27:49 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,25 @@ void	free_arr(char **arr)
 		i++;
 	}
 	free(arr);
+}
+
+void	free_moves(t_mvlst *moves)
+{
+	t_move	*current;
+	t_move	*next;
+
+	if (!moves)
+		return ;
+	current = moves->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	moves->top = NULL;
+	moves->bottom = NULL;
+	moves->size = 0;
 }
 
 void	free_stack(t_stack *stack)

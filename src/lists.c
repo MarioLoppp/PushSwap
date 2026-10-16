@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:04:21 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 20:04:51 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/16 18:39:41 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,30 @@ t_nums	*num_new(int n)
 		return (NULL);
 	new->n = n;
 	new->index = -1;
+	return (new);
+}
+
+void	moves_add_back(t_mvlst *lst, t_move *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = NULL;
+	new->prev = lst->bottom;
+	if (!lst->top)
+		lst->top = new;
+	else
+		lst->bottom->next = new;
+	lst->bottom = new;
+	lst->size++;
+}
+
+t_move	*move_new(char *s)
+{
+	t_move	*new;
+
+	new = ft_calloc(1, sizeof(t_move));
+	if (!new)
+		return (NULL);
+	new->mv = s;
 	return (new);
 }

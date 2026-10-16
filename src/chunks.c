@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:42:19 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/13 18:22:44 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/16 19:57:27 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	chunk_size(int n)
 	return (i);
 }
 
-void	push_chunk(t_stack *a, t_stack *b, int low, int high)
+void	push_chunk(t_stack *a, t_stack *b, int low, int high, t_mvlst *moves)
 {
 	int	i;
 
@@ -30,9 +30,9 @@ void	push_chunk(t_stack *a, t_stack *b, int low, int high)
 	while (i > 0)
 	{
 		if (a->top->index >= low && a->top->index < high)
-			pb(a, b);
+			pb(a, b, moves);
 		else
-			ra(a);
+			ra(a, moves, 0);
 		i--;
 	}
 }
@@ -63,7 +63,7 @@ int	max_position(t_stack *b)
 	return (max_position);
 }
 
-void	pull_max(t_stack *a, t_stack *b)
+void	pull_max(t_stack *a, t_stack *b, t_mvlst *mvs)
 {
 	int	pos;
 	int	moves;
@@ -74,7 +74,7 @@ void	pull_max(t_stack *a, t_stack *b)
 		moves = pos;
 		while (moves > 0)
 		{
-			rb(b);
+			rb(b, mvs, 0);
 			moves--;
 		}
 	}
@@ -83,14 +83,14 @@ void	pull_max(t_stack *a, t_stack *b)
 		moves = b->size - pos;
 		while (moves > 0)
 		{
-			rrb(b);
+			rrb(b, mvs, 0);
 			moves--;
 		}
 	}
-	pa(a, b);
+	pa(a, b, mvs);
 }
 
-void	sort_medium(t_stack *a, t_stack *b)
+void	sort_medium(t_stack *a, t_stack *b, t_mvlst *moves)
 {
 	int	total;
 	int	chunk;
@@ -105,9 +105,9 @@ void	sort_medium(t_stack *a, t_stack *b)
 	low = 0;
 	while (low < total)
 	{
-		push_chunk(a, b, low, low + chunk);
+		push_chunk(a, b, low, low + chunk, moves);
 		low += chunk;
 	}
 	while (b->size > 0)
-		pull_max(a, b);
+		pull_max(a, b, moves);
 }
