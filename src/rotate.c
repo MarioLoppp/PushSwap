@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 17:49:19 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/16 21:38:01 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:09:12 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	rb(t_stack *b, t_mvlst *moves, int flag)
 	b->bottom->next = first;
 	b->bottom = first;
 	new = move_new("rb");
-	moves_add_back(moves, new);
 	ft_printf("rb\n");
 	if (!flag)
 	{

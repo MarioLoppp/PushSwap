@@ -6,11 +6,24 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:04:21 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/16 18:39:41 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:16:45 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+unsigned int	ft_stacksize(t_nums *lst)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
 
 void	stack_add_back(t_stack *stack, t_nums *new)
 {

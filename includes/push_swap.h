@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/17 20:43:50 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:32:06 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,7 @@ unsigned int	ft_stacksize(t_nums *lst);
 void			lstindex(t_stack *stack);
 void			bubble_sort(t_stack *a, t_stack *b, t_mvlst *moves);
 int				chunk_size(int n);
-void			push_chunk(t_stack *a, t_stack *b, 
-				  int low, int high, t_mvlst *moves);
+void			push_chunk(t_stack *a, t_stack *b, int *range, t_mvlst *moves);
 int				max_position(t_stack *b);
 void			stack_add_back(t_stack *stack, t_nums *new);
 t_nums			*num_new(int n);
@@ -103,5 +102,7 @@ void			ft_error(void);
 void			print_bench(int disorder, t_parse flags, t_mvlst moves);
 void			moves_add_back(t_mvlst *lst, t_move *new);
 t_move			*move_new(char *s);
+int				valid_int(const char *str);
+unsigned int	ft_stacksize(t_nums *lst);
 
 #endif

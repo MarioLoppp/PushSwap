@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 16:42:19 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/16 19:57:27 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:31:36 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	chunk_size(int n)
 	return (i);
 }
 
-void	push_chunk(t_stack *a, t_stack *b, int low, int high, t_mvlst *moves)
+void	push_chunk(t_stack *a, t_stack *b, int *range, t_mvlst *moves)
 {
 	int	i;
 
 	i = a->size;
 	while (i > 0)
 	{
-		if (a->top->index >= low && a->top->index < high)
+		if (a->top->index >= range[0] && a->top->index < range[1])
 			pb(a, b, moves);
 		else
 			ra(a, moves, 0);
@@ -94,7 +94,7 @@ void	sort_medium(t_stack *a, t_stack *b, t_mvlst *moves)
 {
 	int	total;
 	int	chunk;
-	int	low;
+	int	range[2];
 
 	if (!a || !b)
 		return ;
@@ -102,11 +102,12 @@ void	sort_medium(t_stack *a, t_stack *b, t_mvlst *moves)
 		return ;
 	total = a->size;
 	chunk = chunk_size(total);
-	low = 0;
-	while (low < total)
+	range[0] = 0;
+	while (range[0] < total)
 	{
-		push_chunk(a, b, low, low + chunk, moves);
-		low += chunk;
+		range[1] = range[0] + chunk;
+		push_chunk(a, b, range, moves);
+		range[0] += chunk;
 	}
 	while (b->size > 0)
 		pull_max(a, b, moves);

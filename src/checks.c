@@ -6,11 +6,38 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 18:50:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 20:40:57 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:12:35 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	valid_int(const char *str)
+{
+	long	value;
+	long	limit;
+	int		i;
+
+	i = 0;
+	value = 0;
+	limit = 2147483647L;
+	if (str[i] == '-')
+		limit = 2147483648L;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		if (value > (limit - (str[i] - '0')) / 10)
+			return (0);
+		value = value * 10 + (str[i] - '0');
+		i++;
+	}
+	return (1);
+}
 
 int	repeated(t_stack *stack)
 {

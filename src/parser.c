@@ -6,51 +6,11 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:56:12 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/18 00:55:17 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:16:24 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	valid_int(const char *str)
-{
-	long	value;
-	long	limit;
-	int		i;
-
-	i = 0;
-	value = 0;
-	limit = 2147483647L;
-	if (str[i] == '-')
-		limit = 2147483648L;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		if (value > (limit - (str[i] - '0')) / 10)
-			return (0);
-		value = value * 10 + (str[i] - '0');
-		i++;
-	}
-	return (1);
-}
-
-unsigned int	ft_stacksize(t_nums *lst)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (lst)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
-}
 
 void	lstindex(t_stack *stack)
 {
@@ -124,29 +84,42 @@ int	parse_ints(int ac, char **av, t_stack *stack, t_parse flags)
 	return (0);
 }
 
+static int	get_flag(char *arg)
+{
+	if (ft_strncmp(arg, "--bench", 8) == 0)
+		return (0);
+	if (ft_strncmp(arg, "--simple", 9) == 0)
+		return (1);
+	if (ft_strncmp(arg, "--medium", 9) == 0)
+		return (2);
+	if (ft_strncmp(arg, "--complex", 10) == 0)
+		return (3);
+	// if (ft_strncmp(arg, "--adaptive", 11) == 0)
+	// 	return (4);
+	return (-1);
+}
+
 int	parse_flags(int ac, char **av, t_parse *flags)
 {
-	int	algo;
-	int	bench;
+	int	i;
+	int	value;
 
-	algo = -1;
-	bench = 0;
-	if (ac > 2)
+	flags->algo = -1;
+	flags->bench = 0;
+	i = 1;
+	while (i < ac && ft_strncmp(av[i], "--", 2) == 0)
 	{
-		if (ft_strnstr(av[1], "--bench", 7)
-			|| ft_strnstr(av[2], "--bench", 7))
-			bench = 1;
-		if (ft_strnstr(av[1], "--simple", 8)
-			|| ft_strnstr(av[2], "--simple", 8))
-			algo = 1;
-		if (ft_strnstr(av[1], "--medium", 8)
-			|| ft_strnstr(av[2], "--medium", 8))
-			algo = 2;
-		if (ft_strnstr(av[1], "--complex", 9)
-			|| ft_strnstr(av[2], "--complex", 9))
-			algo = 3;
+		value = get_flag(av[i]);
+		if (value == -1 || (value == 0 && flags->bench)
+			|| (value > 0 && flags->algo != -1))
+			return (-1);
+		if (value == 0)
+			flags->bench = 1;
+		else
+			flags->algo = value;
+		i++;
 	}
-	flags->algo = algo;
-	flags->bench = bench;
+	// if (flags->algo == -1)
+	// 	flags->algo = 4;
 	return (1);
 }
