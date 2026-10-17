@@ -67,6 +67,6 @@ void	free_stack(t_stack *stack)
 
 void	ft_error(void)
 {
-	ft_printf("Error\n");
-	exit(1);
+	ft_putstr_fd("Error\n", 2);
+	exit(2);
 }

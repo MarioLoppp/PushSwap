@@ -6,11 +6,38 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:56:12 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/14 20:48:08 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 00:55:17 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	valid_int(const char *str)
+{
+	long	value;
+	long	limit;
+	int		i;
+
+	i = 0;
+	value = 0;
+	limit = 2147483647L;
+	if (str[i] == '-')
+		limit = 2147483648L;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		if (value > (limit - (str[i] - '0')) / 10)
+			return (0);
+		value = value * 10 + (str[i] - '0');
+		i++;
+	}
+	return (1);
+}
 
 unsigned int	ft_stacksize(t_nums *lst)
 {
@@ -57,7 +84,7 @@ int	put_in_stack(t_stack *stack, char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		if (!ft_str_is_numeric(arr[i]))
+		if (!valid_int(arr[i]))
 			return (-1);
 		new = num_new(ft_atoi(arr[i]));
 		if (!new)
@@ -84,13 +111,15 @@ int	parse_ints(int ac, char **av, t_stack *stack, t_parse flags)
 		arr = ft_split(av[i], ' ');
 		if (!arr)
 			return (-1);
+		if (!arr[0])
+			return (free_arr(arr), -1);
 		result = put_in_stack(stack, arr);
 		free_arr(arr);
 		if (result == -1)
 			return (-1);
 		i++;
 	}
-	if (is_sorted(stack) || repeated(stack))
+	if (repeated(stack) == -1)
 		return (-1);
 	return (0);
 }
