@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 18:30:00 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/09 19:22:37 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/17 20:36:49 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int	disorder_index(t_stack *stack)
 	}
 	if (total_pairs == 0)
 		return (0);
-	return ((inversions * 100) / total_pairs);
+	return ((inversions * 10000) / total_pairs);
 }

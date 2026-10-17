@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:09 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/16 21:44:24 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/17 20:43:05 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void	stack_init(t_stack *stack, char name)
 int	execute_algo(t_stack *a, t_stack *b, t_parse flags)
 {
 	t_mvlst	moves;
+	int		disorder;
 
+	disorder = disorder_index(a);
 	mvlst_init(&moves);
 	if (flags.algo == 1)
 		bubble_sort(a, b, &moves);
@@ -58,7 +60,7 @@ int	execute_algo(t_stack *a, t_stack *b, t_parse flags)
 	// if (flags.algo == 4)
 	// 	adaptative(a, b, &moves);
 	if (flags.bench)
-		print_bench(a, flags, moves);
+		print_bench(disorder, flags, moves);
 	return (free_moves(&moves), 0);
 }
 

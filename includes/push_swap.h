@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/16 21:22:30 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/17 20:43:50 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int				repeated(t_stack *stack);
 void			free_stack(t_stack *stack);
 void			free_moves(t_mvlst *moves);
 void			ft_error(void);
-void			print_bench(t_stack *a, t_parse flags, t_mvlst moves);
+void			print_bench(int disorder, t_parse flags, t_mvlst moves);
 void			moves_add_back(t_mvlst *lst, t_move *new);
 t_move			*move_new(char *s);
 
