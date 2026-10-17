@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/18 01:32:06 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 01:33:36 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_mvlst
 	t_move	*top;
 	t_move	*bottom;
 	int		size;
-	t_count count;
+	t_count	count;
 }	t_mvlst;
 
 int				sa(t_stack *a, t_mvlst *moves, int flag);
