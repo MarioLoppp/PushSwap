@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:16:16 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/18 17:52:43 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/18 19:31:29 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	stack_init(&b, 'b');
 	flags.algo = 0;
 	flags.bench = 0;
-	if (parse_ints(argc, argv, &a, flags) == -1)
+	if (parse_ints(argc, argv, &a) == -1)
 		return (free_stack(&a), write(2, "Error\n", 6), 1);
 	lstindex(&a);
 	result = check_result(&a, &b);

@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 18:16:36 by marlope3          #+#    #+#             */
-/*   Updated: 2026/10/18 18:01:36 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/18 19:33:04 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,13 @@ int		read_moves(t_stack *a, t_stack *b);
 int		execute_move(char *op, t_stack *a, t_stack *b);
 void	stack_init(t_stack *stack, char name);
 int		same_op(const char *a, const char *b);
+int		is_sorted(t_stack *stack);
+void	stack_add_back(t_stack *stack, t_nums *new);
+t_nums	*num_new(int n);
+int		repeated(t_stack *stack);
+int		valid_int(const char *str);
+int		parse_ints(int ac, char **av, t_stack *stack);
+void	free_stack(t_stack *stack);
+void	lstindex(t_stack *stack);
 
 #endif

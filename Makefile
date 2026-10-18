@@ -6,7 +6,7 @@
 #    By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/07 19:50:13 by salegari          #+#    #+#              #
-#    Updated: 2026/10/18 17:59:32 by marlope3         ###   ########.fr        #
+#    Updated: 2026/10/18 19:48:39 by salegari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,11 @@ SRCS = $(SRC_DIR)/main.c\
 
 BONUS_SRCS = $(BONUS_SRC_DIR)/checker_bonus.c\
 		$(BONUS_SRC_DIR)/execute_bonus.c\
+		$(BONUS_SRC_DIR)/lists_bonus.c\
+		$(BONUS_SRC_DIR)/parse_bonus.c\
 		$(BONUS_SRC_DIR)/read_bonus.c\
 		$(BONUS_SRC_DIR)/utils_bonus.c\
-		$(SRC_DIR)/lists.c\
-		$(SRC_DIR)/parser.c
+		$(BONUS_SRC_DIR)/verify_bonus.c\
 	   
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
