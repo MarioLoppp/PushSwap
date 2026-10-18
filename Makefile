@@ -29,6 +29,7 @@ SRCS = $(SRC_DIR)/main.c\
 		$(SRC_DIR)/radix.c\
 		$(SRC_DIR)/reverse_rotate.c\
 		$(SRC_DIR)/rotate.c\
+		$(SRC_DIR)/adaptive.c\
 
 BONUS_SRCS = $(BONUS_SRC_DIR)/checker_bonus.c\
 		$(BONUS_SRC_DIR)/execute_bonus.c\

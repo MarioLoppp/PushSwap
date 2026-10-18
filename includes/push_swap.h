@@ -6,7 +6,7 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/18 18:27:25 by marlope3         ###   ########.fr       */
+/*   Updated: 2026/10/18 17:32:34 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void			stack_add_back(t_stack *stack, t_nums *new);
 t_nums			*num_new(int n);
 void			free_arr(char **arr);
 int				put_in_stack(t_stack *stack, char **arr);
-int				parse_ints(int ac, char **av, t_stack *stack, t_parse flags);
+int				parse_ints(int ac, char **av, t_stack *stack);
 int				parse_flags(int ac, char **av, t_parse *flags);
 void			sort_medium(t_stack *a, t_stack *b, t_mvlst *moves);
 void			radix_sort(t_stack *a, t_stack *b, t_mvlst *moves);
@@ -103,5 +103,6 @@ void			moves_add_back(t_mvlst *lst, t_move *new);
 t_move			*move_new(char *s);
 int				valid_int(const char *str);
 unsigned int	ft_stacksize(t_nums *lst);
+void			adaptive(t_stack *a, t_stack *b, t_mvlst *moves, int disorder);
 
 #endif

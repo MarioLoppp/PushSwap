@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:56:12 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/18 01:16:24 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 18:19:38 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,14 @@ int	put_in_stack(t_stack *stack, char **arr)
 	return (1);
 }
 
-int	parse_ints(int ac, char **av, t_stack *stack, t_parse flags)
+int	parse_ints(int ac, char **av, t_stack *stack)
 {
 	int		i;
 	char	**arr;
 	int		result;
 
 	i = 1;
-	if (flags.algo > 0)
-		i++;
-	if (flags.bench > 0)
+	while (i < ac && ft_strncmp(av[i], "--", 2) == 0)
 		i++;
 	while (i < ac)
 	{
@@ -94,8 +92,8 @@ static int	get_flag(char *arg)
 		return (2);
 	if (ft_strncmp(arg, "--complex", 10) == 0)
 		return (3);
-	// if (ft_strncmp(arg, "--adaptive", 11) == 0)
-	// 	return (4);
+	if (ft_strncmp(arg, "--adaptive", 11) == 0)
+		return (4);
 	return (-1);
 }
 
@@ -119,7 +117,7 @@ int	parse_flags(int ac, char **av, t_parse *flags)
 			flags->algo = value;
 		i++;
 	}
-	// if (flags->algo == -1)
-	// 	flags->algo = 4;
+	if (flags->algo == -1)
+		flags->algo = 4;
 	return (1);
 }

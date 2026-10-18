@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:09 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/18 01:18:57 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 17:34:16 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static int	execute_algo(t_stack *a, t_stack *b, t_parse flags)
 			sort_medium(a, b, &moves);
 		if (flags.algo == 3)
 			radix_sort(a, b, &moves);
-		// if (flags.algo == 4)
-		// 	adaptive(a, b, &moves);  //AÑADIR ADAPTIVE
+		if (flags.algo == 4 || flags.algo == 0)
+			adaptive(a, b, &moves, disorder);
 	}
 	if (flags.bench)
 		print_bench(disorder, flags, moves);
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 	stack_init(&stack_b, 'b');
 	if (parse_flags(ac, av, &flags) == -1)
 		return (ft_error(), 2);
-	if (parse_ints(ac, av, &stack_a, flags) == -1)
+	if (parse_ints(ac, av, &stack_a) == -1)
 		return (free_stack(&stack_a), ft_error(), 2);
 	if (stack_a.size == 0)
 		return (free_stack(&stack_a), 0);
