@@ -31,6 +31,13 @@ SRCS = $(SRC_DIR)/main.c\
 		$(SRC_DIR)/rotate.c\
 
 BONUS_SRCS = $(BONUS_SRC_DIR)/checker_bonus.c\
+		$(BONUS_SRC_DIR)/execute_bonus.c\
+		$(BONUS_SRC_DIR)/read_bonus.c\
+		$(BONUS_SRC_DIR)/utils_bonus.c\
+		$(SRC_DIR)/checks.c\
+		$(SRC_DIR)/frees.c\
+		$(SRC_DIR)/lists.c\
+		$(SRC_DIR)/parser.c
 	   
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
@@ -38,7 +45,7 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 LIBFT = libft
 LIBFT_LIB = $(LIBFT)/libft.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 all: $(NAME)
@@ -48,8 +55,12 @@ bonus: $(BONUS_NAME)
 $(NAME): $(LIBFT_LIB) $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) -L$(LIBFT) -lft
 
-$(BONUS_NAME): $(BONUS_OBJS)
-	$(CC) $(CFLAGS) -o $@ $(BONUS_OBJS)
+$(BONUS_NAME): $(BONUS_OBJS) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) -o $@ $(BONUS_OBJS) -L$(LIBFT) -lft
+
+$(OBJS) $(BONUS_OBJS): includes/push_swap.h libft/libft.h
+$(BONUS_SRC_DIR)/checker_bonus.o $(BONUS_SRC_DIR)/execute_bonus.o \
+$(BONUS_SRC_DIR)/read_bonus.o $(BONUS_SRC_DIR)/utils_bonus.o: includes/checker_bonus.h
 
 $(LIBFT_LIB):
 	make -C $(LIBFT)
