@@ -13,4 +13,12 @@
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
+# include "push_swap.h"
+# include <unistd.h>
+
+int		read_moves(t_stack *a, t_stack *b);
+int		execute_move(char *op, t_stack *a, t_stack *b);
+void	stack_init(t_stack *stack, char name);
+int		same_op(const char *a, const char *b);
+
 #endif
