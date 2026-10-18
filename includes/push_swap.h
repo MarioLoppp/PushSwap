@@ -6,14 +6,13 @@
 /*   By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 19:46:33 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/18 01:33:36 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 18:27:25 by marlope3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
 # include "../libft/libft.h"
 
 typedef struct s_nums
@@ -85,7 +84,7 @@ unsigned int	ft_stacksize(t_nums *lst);
 void			lstindex(t_stack *stack);
 void			bubble_sort(t_stack *a, t_stack *b, t_mvlst *moves);
 int				chunk_size(int n);
-void			push_chunk(t_stack *a, t_stack *b, int *range, t_mvlst *moves);
+void			push_chunk(t_stack *a, t_stack *b, int chunk, t_mvlst *moves);
 int				max_position(t_stack *b);
 void			stack_add_back(t_stack *stack, t_nums *new);
 t_nums			*num_new(int n);

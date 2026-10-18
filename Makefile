@@ -6,7 +6,7 @@
 #    By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/07 19:50:13 by salegari          #+#    #+#              #
-#    Updated: 2026/10/15 19:34:17 by salegari         ###   ########.fr        #
+#    Updated: 2026/10/18 17:59:32 by marlope3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,6 @@ BONUS_SRCS = $(BONUS_SRC_DIR)/checker_bonus.c\
 		$(BONUS_SRC_DIR)/execute_bonus.c\
 		$(BONUS_SRC_DIR)/read_bonus.c\
 		$(BONUS_SRC_DIR)/utils_bonus.c\
-		$(SRC_DIR)/checks.c\
-		$(SRC_DIR)/frees.c\
 		$(SRC_DIR)/lists.c\
 		$(SRC_DIR)/parser.c
 	   
@@ -80,8 +78,4 @@ fclean: clean
 
 re: fclean all
 
-asan: CFLAGS += -fsanitize=address
-asan: CFLAGS += -g3
-asan: re
-
-.PHONY: all clean fclean re asan bonus
+.PHONY: all clean fclean re bonus
