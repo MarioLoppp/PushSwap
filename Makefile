@@ -6,7 +6,7 @@
 #    By: marlope3 <marlope3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/07 19:50:13 by salegari          #+#    #+#              #
-#    Updated: 2026/10/15 19:34:17 by salegari         ###   ########.fr        #
+#    Updated: 2026/10/18 17:20:48 by salegari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS = $(SRC_DIR)/main.c\
 		$(SRC_DIR)/radix.c\
 		$(SRC_DIR)/reverse_rotate.c\
 		$(SRC_DIR)/rotate.c\
+		$(SRC_DIR)/adaptive.c\
 
 BONUS_SRCS = $(BONUS_SRC_DIR)/checker_bonus.c\
 		$(BONUS_SRC_DIR)/execute_bonus.c\

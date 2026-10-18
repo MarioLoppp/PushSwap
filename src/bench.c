@@ -6,7 +6,7 @@
 /*   By: salegari <salegari@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 19:16:39 by salegari          #+#    #+#             */
-/*   Updated: 2026/10/17 23:50:22 by salegari         ###   ########.fr       */
+/*   Updated: 2026/10/18 17:54:20 by salegari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	put_moves(t_mvlst moves)
 	ft_putchar_fd('\n', 2);
 }
 
-char	*set_strat(int algo)
+char	*set_strat(int algo, int disorder)
 {
 	if (algo == 1)
 		return ("Simple / O(n^2)");
@@ -49,7 +49,14 @@ char	*set_strat(int algo)
 	if (algo == 3)
 		return ("Complex / O(n log n)");
 	if (algo == 4)
-		return ("Adaptative / "); // DEFINIR FUNCION ALGORITMO
+	{
+		if (disorder < 2000)
+			return ("Simple / O(n^2)");
+		if (disorder >= 2000 && disorder < 5000)
+			return ("Medium / O(n√n)");
+		if (disorder >= 5000)
+			return ("Complex / O(n log n)");
+	}
 	return (NULL);
 }
 
@@ -59,7 +66,7 @@ void	print_bench(int disorder, t_parse flags, t_mvlst moves)
 	int		ent;
 	int		dec;
 
-	strat = set_strat(flags.algo);
+	strat = set_strat(flags.algo, disorder);
 	ent = disorder / 100;
 	dec = disorder % 100;
 	ft_putstr_fd("[bench] disorder: ", 2);
