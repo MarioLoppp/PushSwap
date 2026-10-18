@@ -19,21 +19,22 @@ int	chunk_size(int n)
 	i = 0;
 	while ((long long)i * i < n)
 		i++;
-	return (i);
+	return (i + i / 2);
 }
 
-void	push_chunk(t_stack *a, t_stack *b, int *range, t_mvlst *moves)
+void	push_chunk(t_stack *a, t_stack *b, int chunk, t_mvlst *moves)
 {
-	int	i;
-
-	i = a->size;
-	while (i > 0)
+	while (a->size > 0)
 	{
-		if (a->top->index >= range[0] && a->top->index < range[1])
+		if (a->top->index <= b->size)
+		{
+			pb(a, b, moves);
+			rb(b, moves, 0);
+		}
+		else if (a->top->index <= b->size + chunk)
 			pb(a, b, moves);
 		else
 			ra(a, moves, 0);
-		i--;
 	}
 }
 
@@ -44,13 +45,13 @@ int	max_position(t_stack *b)
 	int		max_index;
 	int		max_position;
 
-	if (!b->top)
+	if (!b || !b->top)
 		return (-1);
 	temp = b->top;
 	i = 0;
 	max_index = temp->index;
 	max_position = 0;
-	while (temp)
+	while (i < b->size)
 	{
 		if (temp->index > max_index)
 		{
@@ -92,23 +93,14 @@ void	pull_max(t_stack *a, t_stack *b, t_mvlst *mvs)
 
 void	sort_medium(t_stack *a, t_stack *b, t_mvlst *moves)
 {
-	int	total;
 	int	chunk;
-	int	range[2];
 
 	if (!a || !b)
 		return ;
 	if (b->size || is_sorted(a))
 		return ;
-	total = a->size;
-	chunk = chunk_size(total);
-	range[0] = 0;
-	while (range[0] < total)
-	{
-		range[1] = range[0] + chunk;
-		push_chunk(a, b, range, moves);
-		range[0] += chunk;
-	}
+	chunk = chunk_size(a->size);
+	push_chunk(a, b, chunk, moves);
 	while (b->size > 0)
 		pull_max(a, b, moves);
 }
