@@ -175,8 +175,8 @@ Passing correctness tests or fixed-size performance tests does not by itself est
 
 ## Contributions
 
-- **salegari:** input parsing and validation, bonus input parsing, the simple algorithm, disorder calculation and benchmark mode.
-- **marlope3:** stack operations, the medium algorithm, radix sort and development of the bonus checker.
+- **salegari:** input parsing and validation, bonus input parsing, the simple algorithm, disorder calculation and benchmark mode, half of the stack operations.
+- **marlope3:** half of the stack operations, the medium algorithm, radix sort and development of the bonus checker.
 - **Joint work:** adaptive strategy, integration, debugging and testing.
 
 Both contributors must understand and be able to explain all parts of the project.
